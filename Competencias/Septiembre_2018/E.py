@@ -1,16 +1,13 @@
-crib = raw_input()
-word = raw_input()
-noIter = 0
-counter = 0
-if crib.__len__() == word.__len__():
-  noIter = 1
-else:
-  noIter = crib.__len__() - word.__len__()
+import time
 
-for i in range(0, noIter):
-  for j in range(0, word.__len__()):
-    if word[j] == crib[i + j]:
-      break
-    elif j == word.__len__() - 1 and word[j] != crib[i + j]:
-      counter+=1
+initial_time = time.time()
+crib = input()
+word = input()
+noIter = (1 if crib.__len__() == word.__len__() else crib.__len__() - word.__len__())
+counter = 0
+
+for i in range(noIter):
+  if all(j  != crib[i + word.index(j)] for j in word):
+    counter+=1
 print(counter)
+print("--- %f seconds ---" % (time.time() - initial_time))

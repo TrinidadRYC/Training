@@ -24,12 +24,4 @@ while reiniciar:
     else:
       contador += 1
       lamparas = [not lamparas[j - 1] if j in i else lamparas[j - 1] for j in range(1, lamparas.__len__() + 1)]
-print("--- %s seconds ---" % (time.time() - initial_time))
-# 6 3
-# 2 1 3
-# 3 1 2 3
-# 2 1 3
-# 2 1 2
-# 2 2 3
-# 1 2
-# 3 1 2 3
+print("--- %f seconds ---" % (time.time() - initial_time))
